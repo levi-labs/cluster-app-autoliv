@@ -37,7 +37,7 @@
 
                                         <div class="col-md-6 form-group">
                                             <input type="number" id="contact-info-horizontal" class="form-control"
-                                                name="divide" placeholder="0" min="0">
+                                                name="divide" placeholder="0" min="0" required>
                                             @error('divide')
                                                 <span class="text-sm text-danger mt-2">{{ $message }}</span>
                                             @enderror
