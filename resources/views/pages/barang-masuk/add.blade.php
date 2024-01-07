@@ -79,7 +79,7 @@
 
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="button" class="btn btn-light me-1 mb-1"
-                                                onclick="window.location.href='{{ url('barang-keluar/index') }}'">Kembali</button>
+                                                onclick="window.location.href='{{ url('barang-masuk/index') }}'">Kembali</button>
                                             <button type="submit" class="btn btn-dark me-1 mb-1">Submit</button>
                                             {{-- <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button> --}}
                                         </div>

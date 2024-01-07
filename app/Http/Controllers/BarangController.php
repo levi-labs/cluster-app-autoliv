@@ -160,7 +160,7 @@ class BarangController extends Controller
                 $saveFile             = $imgFile->storeAs($path, $nama);
                 $data->foto_barang    = $saveFile;
             } else {
-                $saveFile             = $data->foto_surat;
+                $saveFile             = $data->foto_barang;
             }
             $data->foto_barang        = $saveFile;
             $data->update();
