@@ -36,9 +36,9 @@
                                         <th>#</th>
                                         <th>Kode Barang Masuk</th>
                                         <th>Nama Barang</th>
-                                        <th>Qty Keluar</th>
-                                        <th>Harga jual</th>
-                                        <th>Tanggal Keluar</th>
+                                        <th>Qty Masuk</th>
+                                        <th>Harga Beli</th>
+                                        <th>Tanggal Masuk</th>
                                         <th>Option</th>
                                     </tr>
                                 </thead>

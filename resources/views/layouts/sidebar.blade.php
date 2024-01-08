@@ -62,14 +62,16 @@
                         <span>DataSet K-Means</span>
                     </a>
                 </li>
-                <li class="sidebar-title">Menu Kategori</li>
-                <hr>
-                <li class="sidebar-item {{ request()->is('kategori/*') ? 'active' : '' }}">
-                    <a href="{{ url('kategori/index') }}" class='sidebar-link'>
-                        <i class="bi bi-list-check"></i>
-                        <span>Kategori</span>
-                    </a>
-                </li>
+                @if (auth()->user()->level == 'Admin')
+                    <li class="sidebar-title">Menu Kategori</li>
+                    <hr>
+                    <li class="sidebar-item {{ request()->is('kategori/*') ? 'active' : '' }}">
+                        <a href="{{ url('kategori/index') }}" class='sidebar-link'>
+                            <i class="bi bi-list-check"></i>
+                            <span>Kategori</span>
+                        </a>
+                    </li>
+                @endif
                 <li class="sidebar-title">Menu Barang</li>
                 <hr>
                 <li class="sidebar-item {{ request()->is('barang/*') ? 'active' : '' }}">
@@ -104,14 +106,16 @@
                         <span>Report Keluar</span>
                     </a>
                 </li>
-                <li class="sidebar-title">Menu Users</li>
-                <hr>
-                <li class="sidebar-item {{ request()->is('user-management/*') ? 'active' : '' }}">
-                    <a href="{{ url('user-management/index') }}" class='sidebar-link'>
-                        <i class="bi bi-people-fill"></i>
-                        <span>User Management</span>
-                    </a>
-                </li>
+                @if (auth()->user()->level == 'Admin')
+                    <li class="sidebar-title">Menu Users</li>
+                    <hr>
+                    <li class="sidebar-item {{ request()->is('user-management/*') ? 'active' : '' }}">
+                        <a href="{{ url('user-management/index') }}" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>User Management</span>
+                        </a>
+                    </li>
+                @endif
                 <li class="sidebar-title">Setting</li>
                 <hr>
                 <li class="sidebar-item {{ request()->is('user/*') ? 'active' : '' }}">

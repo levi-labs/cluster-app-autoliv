@@ -35,6 +35,7 @@
                                     <tr class="text-center">
                                         <th>#</th>
                                         <th>username</th>
+                                        <th>nama</th>
                                         <th>level</th>
                                         <th class="text-center">Option</th>
                                     </tr>
