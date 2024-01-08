@@ -14,7 +14,7 @@
                         <div class="card-body">
 
                             <form class="form form-horizontal" method="POST" action="{{ url('barang-keluar/store') }}"
-                                autocomplete="off" enctype="multipart/form-data">
+                                autocomplete="off">
                                 @csrf
                                 <div class="form-body">
                                     <div class="row">
@@ -23,8 +23,8 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="first-name-horizontal" class="form-control"
-                                                name="kode_barang" placeholder="" value="{{ $kode }}">
-                                            @error('kode_barang')
+                                                name="kode_barang_keluar" placeholder="" value="{{ $kode }}">
+                                            @error('kode_barang_keluar')
                                                 <span class="text-sm text-danger mt-2">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -45,13 +45,13 @@
                                         </div>
                                         <div class="col-md-8 form-group">
 
-                                            <select class="form-select" id="barang" name="barang">
+                                            <select class="form-select" id="barang" name="barang_id">
                                                 <option selected disabled>Pilih</option>
                                                 @foreach ($barang as $brg)
                                                     <option value="{{ $brg->id }}">{{ $brg->nama }}</option>
                                                 @endforeach
                                             </select>
-                                            @error('barang')
+                                            @error('barang_id')
                                                 <span class="text-sm text-danger mt-2">{{ $message }}</span>
                                             @enderror
                                         </div>

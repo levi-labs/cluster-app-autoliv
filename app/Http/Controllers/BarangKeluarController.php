@@ -88,8 +88,9 @@ class BarangKeluarController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
-            'barang'                => 'required',
+            'barang_id'                => 'required',
             'kode_barang_keluar'    => 'required',
             'quantity_keluar'       => 'required',
             'harga_jual'            => 'required',
@@ -101,19 +102,19 @@ class BarangKeluarController extends Controller
         try {
             $bKeluar                        = new BarangKeluar();
             $bKeluar->kode_barang_keluar    = $request->kode_barang_keluar;
-            $bKeluar->qty_keluar            = $request->qty_keluar;
-            $bKeluar->barang_id             = $request->barang;
-            $bKeluar->harga_jual            = $request->harga_jeluar;
+            $bKeluar->qty_keluar            = $request->quantity_keluar;
+            $bKeluar->barang_id             = $request->barang_id;
+            $bKeluar->harga_jual            = $request->harga_jual;
             $bKeluar->tanggal_keluar        = $request->tanggal_keluar;
             $bKeluar->save();
 
-            $barang                         = Barang::where('id', $request->barang)->first();
+            $barang                         = Barang::where('id', $request->barang_id)->first();
             $temp                           = $barang->stock - $bKeluar->qty_keluar;
             $barang->stock                  = $temp;
             $barang->save();
             DB::commit();
 
-            return redirect('barang-keluar/store')->with('success', 'Barang Keluar berhasil di tambah');
+            return redirect('barang-keluar/index')->with('success', 'Barang Keluar berhasil di tambah');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('failed', $e->getMessage());
@@ -193,7 +194,7 @@ class BarangKeluarController extends Controller
             $bKeluar        = BarangKeluar::where('id', $barangKeluar->id)->first();
             $barang         = Barang::where('id', $bKeluar->barang_id)->first();
 
-            $result         = $barang->stock + $bKeluar->quantity_keluar;
+            $result         = $barang->stock + $bKeluar->qty_keluar;
             $barang->stock  = $result;
             $barang->save();
 
